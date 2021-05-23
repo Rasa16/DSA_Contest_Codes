@@ -1,3 +1,4 @@
 # DSA_Contest_Codes
-These are the solutions to the contest 240 on leetcode
+These are the solutions to the contests on leetcode
 https://leetcode.com/contest/weekly-contest-240/
+https://leetcode.com/contest/weekly-contest-242
