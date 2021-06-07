@@ -1,29 +1,26 @@
 class Solution {
 public:
-    static bool mycmp(pair<int, int> p1, pair<int, int> p2){
-        return p1.first < p2.first;
-    }
-    int reductionOperations(vector<int>& nums) {
-        map<int, int> m;
-        for(int i = 0 ; i<nums.size(); i++){
-            m[nums[i]]++;
+    bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
+        int n = mat.size();
+        if(mat == target) {     // rotation by 0 degree.
+            return true;
         }
-        vector<pair<int, int>> v;
-        pair<int, int> p;
-        for(auto x:m){
-            p = {x.first, x.second};
-            v.push_back(p);
-        }
-        sort(v.begin(), v.end(), mycmp);
         
-        if(v.size() == 1)
-            return 0;
-        int ans = 0;
-        for(int i = v.size()-1; i>=1; i--){
-            p = v[i];
-            ans += p.second;
-            v[i-1].second += p.second;
+        int deg = 3;    // more rotations with 90, 180, 270 degree's.
+        
+        while(deg --) {
+            for(int i = 0; i < n; i ++) {
+                for(int j = i; j < n; j ++) {
+                    swap(mat[i][j], mat[j][i]);     // transpose of matrix.
+                }
+            }
+            for(int i = 0; i < n; i ++) {
+                reverse(mat[i].begin(),mat[i].end());       // reverse each row.
+            }
+            if(mat == target) {
+                return true;
+            }
         }
-        return ans;
+        return false;
     }
 };
