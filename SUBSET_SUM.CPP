@@ -1,3 +1,5 @@
+//https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1/
+
 class Solution{   
 public:
     bool isSubsetSum(int N, int arr[], int sum){
