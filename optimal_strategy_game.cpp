@@ -1,4 +1,5 @@
 //https://practice.geeksforgeeks.org/problems/optimal-strategy-for-a-game-1587115620/1
+//https://www.codingninjas.com/codestudio/problems/optimal-strategy-for-a-game_975479?leftPanelTab=1
 
 long long maximumAmount(int arr[], int n) 
 {
