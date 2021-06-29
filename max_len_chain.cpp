@@ -1,4 +1,5 @@
 //https://practice.geeksforgeeks.org/problems/max-length-chain/1#
+//https://leetcode.com/problems/maximum-length-of-pair-chain/submissions/
 
 /*You are required to complete this method*/
 bool logic(struct val p, struct val q){
