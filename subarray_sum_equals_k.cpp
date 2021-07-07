@@ -1,4 +1,5 @@
 //https://leetcode.com/problems/subarray-sum-equals-k/submissions/
+//https://practice.geeksforgeeks.org/problems/subarrays-with-sum-k/1/
 
 class Solution {
 public:
