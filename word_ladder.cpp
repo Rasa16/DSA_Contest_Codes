@@ -1,5 +1,6 @@
 //https://leetcode.com/problems/word-ladder/
 //https://www.codingninjas.com/codestudio/problems/word-ladder_1102319?leftPanelTab=0
+//https://practice.geeksforgeeks.org/problems/word-ladder/1#
 
 #include<bits/stdc++.h>
 int wordLadder(string begin, string end, vector<string> &dict) 
