@@ -1,4 +1,5 @@
 //https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+//https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/submissions/
 
 /*
 // Definition for a Node.
@@ -49,6 +50,57 @@ public:
                     v[i]->next = v[i+1];
                 }
             }
+        }
+        return root;
+    }
+};
+
+
+//efficent code second one
+
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* next;
+
+    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+
+    Node(int _val, Node* _left, Node* _right, Node* _next)
+        : val(_val), left(_left), right(_right), next(_next) {}
+};
+*/
+
+class Solution {
+public:
+    Node* connect(Node* root) {
+        if(root == NULL)
+            return NULL;
+        
+        queue<Node*> q;
+        q.push(root);
+        Node* temp = NULL;
+        
+        while(!q.empty()){
+            int size = q.size();
+            while(size--){
+                Node* p = q.front();
+                q.pop();
+                
+                p->next = temp;
+                temp = p;
+                
+                if(p->right)
+                    q.push(p->right);
+                if(p->left)
+                    q.push(p->left);
+            }
+            temp = NULL;
         }
         return root;
     }
