@@ -1,0 +1,34 @@
+//https://www.codingninjas.com/codestudio/problems/longest-increasing-path-in-a-2d-matrix_985245?leftPanelTab=0
+//https://leetcode.com/problems/longest-increasing-path-in-a-matrix/submissions/
+
+#include<bits/stdc++.h>
+
+int dx[4] = {1, -1, 0 ,0};
+int dy[4] = {0, 0, 1, -1};
+int dfs(vector<vector<int>> &mat, int i, int j, int n, int m, vector<vector<int>> &mem)
+{
+    if(mem[i][j] > 0) return mem[i][j];
+    int maxi = 0;
+    for(int k = 0; k<4; k++){
+        int x = i+dx[k];
+        int y = j+dy[k];
+        
+        if(x >=0 && y >= 0 && x <n && y < m && mat[i][j] < mat[x][y]){
+            maxi = max(maxi, dfs(mat, x, y, n, m, mem));
+        }
+    }
+    mem[i][j] = maxi+1;
+    return maxi + 1;
+}
+int longestIncreasingPath(vector<vector<int>> &mat, int n, int m)
+{
+    // Write your code here
+    int ans = INT_MIN;
+    vector<vector<int>> mem(n, vector<int>(m));
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++){
+            ans = max(ans, dfs(mat, i, j, n, m, mem));
+        }
+    }
+    return ans;
+}
